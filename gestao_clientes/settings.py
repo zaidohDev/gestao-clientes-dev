@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from decouple import config
+from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=o8_egm@p_)$ymt3ntft*@-0uunmzs31=a@5njb1pkrvv0-xp)'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gestao-clientes-dev.herokuapp.com']
 
 # Application definition
 
@@ -71,18 +73,20 @@ WSGI_APPLICATION = 'gestao_clientes.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+DATABASES = {'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
-DATABASES = {
-    'default': {
-        'NAME': 'gestao_clientes',
-        'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'postgres',
-        'PASSWORD': 'aa000000',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
-
+#
+# DATABASES = {
+#     'default': {
+#         'NAME': 'gestao_clientes',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'USER': 'postgres',
+#         'PASSWORD': 'aa000000',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # DATABASES = {
@@ -140,3 +144,4 @@ LOGIN_REDIRECT_URL = 'persons_list'
 
 LOGOUT_REDIRECT_URL = 'home'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
