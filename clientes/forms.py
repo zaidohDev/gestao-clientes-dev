@@ -9,6 +9,7 @@ class PersonForm(ModelForm):
         fields = [
             'first_name',
             'last_name',
+            'email',
             'age',
             'salary',
             'bio',

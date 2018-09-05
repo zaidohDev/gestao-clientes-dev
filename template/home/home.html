@@ -1,19 +1,29 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-</head>
-<body>
-<h1>Home</h1>
-{% if user.is_authenticated %}
-    <p>Olá {{ user.username}}</p>
-<a href="{% url 'logout' %}">Sair</a>
-{% else %}
-<a href="{% url 'login' %}">Entrar</a>
-{% endif%}
-</body>
-</html>
+{% extends 'base.html' %}
+
+
+{% block title %}HomePage{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>HomePage</h3>
+        </div>
+        <div class="col-sm-4">
+            <h3></h3>
+        </div>
+        <div class="col-sm-4">
+            <p>
+            {% if user.is_authenticated %}
+            <div class="alert alert-info">
+                <strong>Ola!</strong> {{ user.username}}.
+            </div>
+            Sair do Sistema<span class="badge badge-light"><a href="{% url 'logout' %}">Sair</a></span>
+            {% else %}
+            Entrar no Sistema <span class="badge badge-light"><a href="{% url 'login' %}">Entrar</a></span>
+            {% endif %}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
