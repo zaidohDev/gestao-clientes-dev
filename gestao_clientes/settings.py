@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['gestao-clientes-dev.herokuapp.com']
+ALLOWED_HOSTS = ['gestao-clientes-dev.herokuapp.com/']
 
 # Application definition
 
@@ -146,3 +146,4 @@ LOGIN_REDIRECT_URL = 'persons_list'
 LOGOUT_REDIRECT_URL = 'home'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
