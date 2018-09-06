@@ -4,7 +4,7 @@
 
 {% block main %}
 
-
+<div class="content">
 <nav class="navbar navbar-expand-sm bg-light">
 <p>Sair do Sistema<span class="badge badge-light"><a href="{% url 'logout' %}">Sair</a></span></p>
 </nav>
@@ -33,4 +33,5 @@
     {% endfor %}
     </tbody>
 </table>
+</div>
 {% endblock %}
