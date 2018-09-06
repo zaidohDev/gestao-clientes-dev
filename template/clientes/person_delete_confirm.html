@@ -4,6 +4,10 @@
 
 {% block main %}
 <h3 class="md">Você deseja deletar o ID {{person.id}} ?</h3>
+<nav class="navbar navbar-expand-sm bg-light">
+        <p>Sair do Sistema<span class="badge badge-light"><i class="fas fa-sign-out-alt"></i>
+            <a href="{% url 'logout' %}">Sair</a></span></p>
+    </nav>
 <form action="{% url 'persons_delete' person.id %}" method="post" enctype="multipart/form-data">
    {% csrf_token %}
 
