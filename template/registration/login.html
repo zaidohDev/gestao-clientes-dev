@@ -10,7 +10,7 @@
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <h2><span class="badge badge-light" style="margin: auto 3px; padding: 1px 2px;"><i class="fas fa-users"></i>login</span></h2>
+                <h2><span class="badge badge-light" style="margin: auto 3px;"><i class="fas fa-users"></i>login</span></h2>
                 <form action="{% url 'login' %}" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}

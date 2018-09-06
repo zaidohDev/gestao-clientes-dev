@@ -8,10 +8,10 @@
    {% csrf_token %}
 
     <ul>
-        <li>{{ person.first_name }}</li>
+        <li><i class="fas fa-user-minus" ></i><span style=" margin: 0 0 10px 10px">{{ person.first_name }}</span></li>
     </ul>
     <div class="btn-group">
-        <button type="submit" class="btn btn-outline-danger">Deletar</button>
+        <button type="submit" class="btn btn-outline-danger"></i> Deletar</button>
     <a href="{% url 'persons_list' %}" class="btn btn-outline-warning">Cancel</a>
     </div>
 </form>
