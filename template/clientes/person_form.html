@@ -7,21 +7,24 @@
 {% block main %}
 <h3 class="md">Home</h3>
 <nav class="navbar navbar-expand-sm bg-light">
-        <p>Sair do Sistema<span class="badge badge-light"><i class="fas fa-sign-out-alt"></i>
+    <p>Sair do Sistema<span class="badge badge-light"><i class="fas fa-sign-out-alt"></i>
             <a href="{% url 'logout' %}">Sair</a></span></p>
-    </nav>
+</nav>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-         {{ form|bootstrap }}
+    {{ form|bootstrap }}
     <div class="btn-group">
-    <button type="submit" class="btn btn-outline-primary">Salvar</button>
-    <a href="{% url 'persons_list' %}" class="btn btn-outline-warning">Cancel</a>
+        <button type="submit" class="btn btn-outline-primary">Salvar</button>
+        <a href="{% url 'persons_list' %}" class="btn btn-outline-warning">Cancel</a>
     </div>
 </form>
-<nav class="navbar navbar-expand-sm bg-light">
-        <p>Sair do Sistema<span class="badge badge-light"><i class="fas fa-sign-out-alt"></i>
-            <a href="{% url 'logout' %}">Sair</a></span></p>
-    </nav>
+
 {% endblock %}
 
-{% block footer%}{% endblock %}
+{% block footer %}
+<footer class="footer">
+    <div class="container">
+        <center><span class="text-muted">Daniel de Almeida: Full Stack developer</span></center>
+    </div>
+</footer>
+{% endblock %}
