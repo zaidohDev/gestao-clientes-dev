@@ -5,11 +5,13 @@
 {% block title %}PageList{% endblock %}
 
 {% block main %}
-<h3 class="md">Home</h3>
-<nav class="navbar navbar-expand-sm bg-light">
-    <p>Sair do Sistema<span class="badge badge-light"><i class="fas fa-sign-out-alt"></i>
-            <a href="{% url 'logout' %}">Sair</a></span></p>
-</nav>
+<div class="container">
+<h3 class="md">Cadastramento de Clientes</h3>
+<!--<nav class="navbar navbar-expand-sm bg-light">-->
+    <!--<p>Sair do Sistema<span class="badge badge-light"><i class="fas fa-sign-out-alt"></i>-->
+            <!--<a href="{% url 'logout' %}">Sair</a></span></p>-->
+<!--</nav>-->
+
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|bootstrap }}
@@ -18,13 +20,14 @@
         <a href="{% url 'persons_list' %}" class="btn btn-outline-warning">Cancel</a>
     </div>
 </form>
-
+</div>
 {% endblock %}
 
 {% block footer %}
-<footer class="footer">
-    <div class="container">
+<footer >
+      <div class="container" class="footer" style="margin: 20px 0px;">
         <center><span class="text-muted">Daniel de Almeida: Full Stack developer</span></center>
-    </div>
-</footer>
+      </div>
+    </footer>
+
 {% endblock %}
