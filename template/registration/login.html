@@ -3,14 +3,26 @@
 {% block title %}PageLogin!{% endblock %}
 
 {% block main %}
-
-<div class="form-group">
-<h2>login</h2>
-
-<form action="{% url 'login' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Entrar</button>
-</form>
- </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3></h3>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <h2><span class="badge badge-light" style="margin: auto 3px; padding: 1px 2px;"><i class="fas fa-users"></i>login</span></h2>
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">
+                        <span class="badge badge-light" style="margin: auto 3px;"><i class="fas fa-sign-in-alt"></i></span>Entrar</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <p>
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}

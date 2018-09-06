@@ -14,16 +14,20 @@
         </div>
         <div class="col-sm-4">
             <p>
-            {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
             <div class="alert alert-info">
                 <strong>Ola!</strong> {{ user.username}}.
             </div>
-            Sair do Sistema<span class="badge badge-light"><a href="{% url 'logout' %}">Sair</a></span>
+            Sair do Sistema<span class="badge badge-light"><i class="fas fa-sign-out-alt"></i>
+            <a href="{% url 'logout' %}">Sair</a></span>
             {% else %}
-            Entrar no Sistema <span class="badge badge-light"><a href="{% url 'login' %}">Entrar</a></span>
+            Entrar no Sistema <span class="badge badge-light"><i class="fas fa-sign-in-alt"></i>
+            <a href="{% url 'login' %}">Entrar</a></span>
             {% endif %}
             </p>
         </div>
     </div>
 </div>
 {% endblock %}
+
+{% block footer%}{% endblock %}
